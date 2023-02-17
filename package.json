@@ -4,7 +4,12 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "test3":"echo \"我是test3\"",
+        "tt":"node node.js",
         "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "tt": {
+        "pre-commit": "npm run test3"
     },
     "author": "",
     "license": "ISC"
