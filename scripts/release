@@ -1,0 +1,20 @@
+
+#!/bin/bash
+master="feat-husky"
+branch=$(git rev-parse --symbolic --abbrev-ref HEAD)
+if [ "$master" == "$branch" ]; then
+    git pull origin $branch
+    echo "Current pull origin $branch."
+
+    # Auto generate version number and tag
+    standard-version 
+
+    git push --follow-tags origin $branch
+
+    echo "Git push origin $master"
+    echo "Release finished."
+
+    exit 1
+else 
+    echo "$branch is not $master"
+fi
